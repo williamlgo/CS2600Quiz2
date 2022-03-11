@@ -24,7 +24,7 @@ PtrToEmployee searchEmployeeByName(PtrToConstEmployee ptr, int tableSize, char *
 PtrToEmployee searchEmployeeByPhone(PtrToConstEmployee ptr, int tableSize, char * targetPhone){ 
     const PtrToConstEmployee endPtr = ptr + tableSize; 
     for(; ptr < endPtr; ptr++){ 
-        if(strcmp(ptr->name,targetPhone) == 0) //check if it equals Employee phone number
+        if(strcmp(ptr->phone,targetPhone) == 0) //check if it equals Employee phone number
             return (PtrToEmployee) ptr; 
     } 
     return NULL; 
