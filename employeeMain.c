@@ -12,6 +12,8 @@ int main(void){
     //defined in employeeSearchOne.c 
     PtrToEmployee searchEmployeeByNumber(const Employee table[], int sizeTable, long numberToFind); 
     PtrToEmployee searchEmployeeByName(const Employee table[], int sizeTable, char * nameToFind); 
+    PtrToEmployee searchEmployeeByPhone(const Employee table[], int sizeTable, char * phoneToFind);
+    PtrToEmployee searchEmployeeBySalary(const Emloyee table[], int sizeTable, double salaryToFind);
 
  
     //defined in employeeTable.c 
