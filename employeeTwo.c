@@ -7,10 +7,6 @@
 //targetPtr - points to value that will be searched for in table 
 //functionPtr - points to a comparison function below and will perform the associated check 
 
- 
-//What does setting a function to static do??  
-//functionPtr is the address of the function just use the name 
-//()(The second set of parentheses is the arguments of the function call) 
 static PtrToEmployee searchEmployeeTable(PtrToConstEmployee ptr, int tableSize, const void *targetPtr,  
         int (*functionPtr)(const void *, PtrToConstEmployee)) 
 { 
@@ -29,7 +25,14 @@ static int compareEmployeeName(const void *targetPtr, PtrToConstEmployee tableVa
 { 
     return strcmp((char *) targetPtr, tableValuePtr->name); //const void *targetPtr ==> typecast as char pointer then pass into strcmp() 
 }  
-
+static int compareEmployeeSalary(const void *targetPtr, PtrToConstEmployee tableValuePtr) 
+{ 
+    return * (double *) targetPtr != tableValuePtr->salary; //const void *targetPtr ==> typecast as int pointer then dereference 
+} 
+static int compareEmployeePhone(const void *targetPtr, PtrToConstEmployee tableValuePtr) 
+{ 
+    return strcmp((char *) targetPtr, tableValuePtr->phone); //const void *targetPtr ==> typecast as char pointer then pass into strcmp() 
+}  
  
 //These are called wrappers. These functions are what you will use in your main!!! 
 PtrToEmployee searchEmployeeByNumber(PtrToConstEmployee ptr, int size, long number) 
