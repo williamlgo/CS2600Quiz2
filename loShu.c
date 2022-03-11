@@ -95,17 +95,17 @@ bool checkExist(int num){
 
 //Checks the sum of each row column, AND DIAGONAL if they equal to 15
 bool checkSum(int arr[3][3]){
-    bool magicSquare = true;
-    //Checking column
-    if((arr[0][0] + arr[0][1] + arr[0][2]) != 15)
-        magicSquare = false;
-    if((arr[1][0] + arr[1][1] + arr[1][2]) != 15)
-        magicSquare = false;
-    if((arr[2][0] + arr[2][1] + arr[2][2]) != 15)
-        magicSquare = false;
+  bool magicSquare = true;
+  //Checking column
+  if((arr[0][0] + arr[0][1] + arr[0][2]) != 15)
+      magicSquare = false;
+  if((arr[1][0] + arr[1][1] + arr[1][2]) != 15)
+      magicSquare = false;
+  if((arr[2][0] + arr[2][1] + arr[2][2]) != 15)
+       magicSquare = false;
 
   //Checking row
-   if((arr[0][0] + arr[1][0] + arr[2][0]) != 15)
+  if((arr[0][0] + arr[1][0] + arr[2][0]) != 15)
      magicSquare = false;
   if((arr[0][1] + arr[1][1] + arr[2][1]) != 15)
      magicSquare = false;
