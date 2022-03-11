@@ -94,30 +94,31 @@ bool checkExist(int num){
 }
 
 //Checks the sum of each row column, AND DIAGONAL if they equal to 15
+//returns false if sum is not equal to 15. returns true otherwise.
 bool checkSum(int arr[3][3]){
   bool magicSquare = true;
   //Checking column
-  if((arr[0][0] + arr[0][1] + arr[0][2]) != 15)
-      magicSquare = false;
-  if((arr[1][0] + arr[1][1] + arr[1][2]) != 15)
-      magicSquare = false;
-  if((arr[2][0] + arr[2][1] + arr[2][2]) != 15)
-       magicSquare = false;
-
+  if((arr[0][0] + arr[0][1] + arr[0][2]) != 15){
+    magicSquare = false;
+  }if((arr[1][0] + arr[1][1] + arr[1][2]) != 15){
+    magicSquare = false;
+  }if((arr[2][0] + arr[2][1] + arr[2][2]) != 15){
+    magicSquare = false;
+  }
   //Checking row
-  if((arr[0][0] + arr[1][0] + arr[2][0]) != 15)
-     magicSquare = false;
-  if((arr[0][1] + arr[1][1] + arr[2][1]) != 15)
-     magicSquare = false;
-  if((arr[0][2] + arr[1][2] + arr[2][2]) != 15)
-     magicSquare = false;
-
+  if((arr[0][0] + arr[1][0] + arr[2][0]) != 15){
+    magicSquare = false;
+  }if((arr[0][1] + arr[1][1] + arr[2][1]) != 15){
+    magicSquare = false;
+  }if((arr[0][2] + arr[1][2] + arr[2][2]) != 15){
+    magicSquare = false;
+  }
   //checking diagonal
-  if((arr[0][0] + arr[1][1] + arr[2][2]) != 15)
-     magicSquare = false;
-  if((arr[0][3] + arr[1][1] + arr[3][0]) != 15)
-     magicSquare = false;
-
+  if((arr[0][0] + arr[1][1] + arr[2][2]) != 15){
+    magicSquare = false;
+  }if((arr[0][3] + arr[1][1] + arr[3][0]) != 15){
+    magicSquare = false;
+  }
   return magicSquare;
 }
 
@@ -136,48 +137,50 @@ void resetExist(){
 
 int main(){
   bool done = false;
+  bool generated = false;
   int arr[3][3];
-  int i,j;
   printf("starting");
 
   while (done == false){
     //Generating and filling the 2d array
     for(int i=0; i<3; i++){
-        for(int j=0; i<3; j++){
-            do{
-            srand(time(NULL));
-            arr[i][j] = (rand() % 9) + 1;
-            }while(checkExist(arr[i][j]) == false);
-        }
-    }
-    printf("array made");
-    //Checking if it is a lo shu square
-    if(checkSum(arr)){
-        done = true;
-    }else{
-        //Create a new empty array to reset arr
-        for(int i=0; i<3; i++){
-          for(int j=0; i<3; j++){
-              arr[i][j] = 0;
+      for(int j=0; j<3; j++){
+        while(generated == false){
+          srand(time(NULL));
+          arr[i][j] = (rand() & 9) + 1;
+          if(checkExist(arr[i][j]) == true){
+            generated = true;
           }
         }
-        resetExist();
-        printf("just reset");
+      }
+    }
+
+    //Checking if it is a lo shu square
+    if(checkSum(arr) == true){
+      done = true;
+    }else{
+      //Create a new empty array to reset arr
+      for(int i=0; i<3; i++){
+        for(int j=0; j<3; j++){
+          arr[i][j] = 0;
+        }
+      }
+      resetExist();
     }
     counter++; //counting how many times to make a lo shu square
   }
 
   //Print out the array
-    for(int i=0; i<3; i++){
-        for(int j=0; i<3; j++){
-            if(j == 1){
-            printf("[%d ", arr[i][j]);
-        }else if(j == 2){
-            printf(" %d]", arr[i][j]);
-        }else{
-            printf("%d", arr[i][j]);
-        }
-        }
+  for(int i=0; i<3; i++){
+    for(int j=0; j<3; j++){
+      if(j==0){
+        printf("[%d ", arr[i][j]);
+      }else if(j==2){
+        printf(" %d]", arr[i][j]);
+      }else{
+        printf("%d", arr[i][j]);
+      }
     }
-    printf("The total number of tries is" + counter);
+  }
+  printf("The total number of tries is" + counter);
 }
