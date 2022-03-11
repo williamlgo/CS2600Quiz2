@@ -6,7 +6,7 @@
 #include <stdlib.h> 
 #include "employee.h" 
 int main(void){ 
-    //defined in employeeTwo.c 
+    //defined in employeeOne.c or employeeTwo.c 
     PtrToEmployee searchEmployeeByNumber(const Employee table[], int sizeTable, long numberToFind); 
     PtrToEmployee searchEmployeeByName(const Employee table[], int sizeTable, char * nameToFind); 
     PtrToEmployee searchEmployeeByPhone(const Employee table[], int sizeTable, char * phoneToFind);
