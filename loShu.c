@@ -138,7 +138,6 @@ int main(){
   bool done = false;
   int arr[3][3];
   int i,j;
-  srand(time(NULL));
   printf("starting");
 
   while (done == false){
@@ -146,12 +145,12 @@ int main(){
     for(int i=0; i<3; i++){
         for(int j=0; i<3; j++){
             do{
+            srand(time(NULL));
             arr[i][j] = (rand() % 9) + 1;
-            printf("checking");
             }while(checkExist(arr[i][j]) == false);
         }
     }
-    printf("done check sum time");
+    printf("array made");
     //Checking if it is a lo shu square
     if(checkSum(arr)){
         done = true;
@@ -167,6 +166,7 @@ int main(){
     }
     counter++; //counting how many times to make a lo shu square
   }
+
   //Print out the array
     for(int i=0; i<3; i++){
         for(int j=0; i<3; j++){
@@ -179,4 +179,5 @@ int main(){
         }
         }
     }
+    printf("The total number of tries is" + counter);
 }
