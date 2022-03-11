@@ -24,8 +24,8 @@ int counter = 0; //Checks how many times to generate a Lo Shu square.
 
 //Checks if the number in the array already exists
 bool checkExist(int num){
-  //first checks what number is being inputted. 
-  //then checks if the number already exists. 
+  //First checks what number is being inputted. 
+  //Then checks if the number already exists. 
   //if the number already exists, return false. Else, change bool value to true and return true.
   if(num == 1){
     if(one){
